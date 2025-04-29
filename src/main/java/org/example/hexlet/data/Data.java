@@ -8,11 +8,9 @@ import java.util.List;
 public class Data {
     public static List<Course> getCourses() {
         return Arrays.asList(
-                new Course("1", "Java для начинающих", "Изучите основы Java."),
-                new Course("2", "Python для всех", "Изучите Python с нуля."),
-                new Course("3", "Web-разработка", "Создайте свой первый веб-сайт.")
+                new Course("Java для начинающих", "Изучите основы Java."),
+                new Course("Python для всех", "Изучите Python с нуля."),
+                new Course("Web-разработка", "Создайте свой первый веб-сайт.")
         );
     }
-
-
 }

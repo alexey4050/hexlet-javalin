@@ -8,17 +8,29 @@ import java.util.List;
 import java.util.Optional;
 
 public class UserRepository {
-    private static final List<User> USERS = new ArrayList<>();
+    private static final List<User> entities = new ArrayList<>();
 
-    static {
-        USERS.add(new User(1L, "Pearl", "pearl@example.com", "password", LocalDateTime.now()));
-    }
-
-    public static List<User> getEntities() {
-        return USERS;
+    public static void save(User user) {
+        user.setId((long) entities.size() + 1);
+        user.setCreatedAt(LocalDateTime.now());
+        entities.add(user);
     }
 
     public static Optional<User> find(Long id) {
-        return USERS.stream().filter(user -> user.getId().equals(id)).findFirst();
+        var maybeUser = entities.stream()
+                .filter(entity -> entity.getId() == id)
+                .findAny();
+        return maybeUser;
+    }
+
+    public static List<User> search(String term) {
+        var users = entities.stream()
+                .filter(entity -> entity.getName().startsWith(term))
+                .toList();
+        return users;
+    }
+
+    public static List<User> getEntities() {
+        return entities;
     }
 }

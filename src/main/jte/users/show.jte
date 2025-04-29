@@ -4,7 +4,7 @@
 @template.layout.page(
 content = @`
     <h1>${page.getUser().getName()}</h1>
-    <p>Email: ${page.getUser().getEmail()}</p>
-    <a href="/users" class="btn btn-primary">Назад к списку пользователей</a>
+    <p>${page.getUser().getEmail()}</p>
+    <a href="/users">Назад к списку пользователей</a>
 `
 )

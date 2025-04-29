@@ -1,13 +1,10 @@
-@import org.example.hexlet.model.Course
-@param Course course
+@import org.example.hexlet.dto.courses.CoursePage
+@param CoursePage page
 
-<html>
-    <head>
-        <title>${course.getName()}</title>
-    </head>
-    <body>
-        <h1>${course.getName()}</h1>
-        <p>${course.getDescription()}</p>
+@template.layout.page(
+content = @`
+        <h1>${page.getCourse().getName()}</h1>
+        <p>${page.getCourse().getDescription()}</p>
         <a href="/courses">Назад к списку курсов</a>
-    </body>
-</html>
+`
+)

@@ -1,4 +1,5 @@
 @import gg.jte.Content
+@import org.example.hexlet.util.NamedRoutes
 @param Content content
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +10,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Мой сайт</a>
@@ -20,23 +20,28 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Главная</a>
+                        <a class="nav-link" href="${NamedRoutes.buildUserPath()}">Создать пользователя</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="${org.example.hexlet.util.NamedRoutes.buildUserPath()}">Создать пользователя</a>
+                        <a class="nav-link" href="${NamedRoutes.usersPath()}">Поиск пользователя</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="${NamedRoutes.coursesPath()}">Поиск курсов</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="${NamedRoutes.buildCoursePath()}">Создание курсов</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-</header>
 
 <main class="container mt-4">
-    @render
+    ${content}
 </main>
 
 <footer class="bg-light text-center py-3">
-    <p>&copy; 2023 <a href="https://github.com/alexey4050" target="_blank">Ваш профиль на GitHub</a></p>
+    <p>&copy; 2025 <a href="https://github.com/alexey4050" target="_blank">Мой профиль на GitHub</a></p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
