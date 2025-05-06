@@ -1,25 +1,32 @@
 package org.example.hexlet;
 
 import io.javalin.Javalin;
-import io.javalin.http.NotFoundResponse;
+//import io.javalin.http.NotFoundResponse;
 import io.javalin.rendering.template.JavalinJte;
-import io.javalin.validation.ValidationException;
+//import io.javalin.validation.ValidationException;
 import org.example.hexlet.controller.CourseController;
+import org.example.hexlet.controller.RootController;
+import org.example.hexlet.controller.SessionController;
 import org.example.hexlet.controller.UsersController;
-import org.example.hexlet.dto.courses.BuildCoursePage;
-import org.example.hexlet.dto.courses.CoursePage;
-import org.example.hexlet.dto.courses.CoursesPage;
-import org.example.hexlet.dto.users.BuildUserPage;
-import org.example.hexlet.dto.users.UsersPage;
-import org.example.hexlet.model.Course;
-import org.example.hexlet.model.User;
-import org.example.hexlet.repository.CourseRepository;
-import org.example.hexlet.repository.UserRepository;
+//import org.example.hexlet.data.Data;
+//import org.example.hexlet.dto.courses.BuildCoursePage;
+//import org.example.hexlet.dto.courses.CoursePage;
+//import org.example.hexlet.dto.courses.CoursesPage;
+//import org.example.hexlet.dto.users.BuildUserPage;
+//import org.example.hexlet.dto.users.UsersPage;
+//import org.example.hexlet.model.Course;
+//import org.example.hexlet.model.User;
+//import org.example.hexlet.repository.CourseRepository;
+//import org.example.hexlet.repository.UserRepository;
+import org.example.hexlet.dto.MainPage;
 import org.example.hexlet.util.NamedRoutes;
 
-import java.util.List;
+import java.util.Date;
 
 import static io.javalin.rendering.template.TemplateUtil.model;
+//import java.util.List;
+//
+//import static io.javalin.rendering.template.TemplateUtil.model;
 
 public class HelloWorld {
 
@@ -30,8 +37,33 @@ public class HelloWorld {
             config.fileRenderer(new JavalinJte());
         });
 
+        app.before(ctx -> {
+            var path = ctx.path();
+            System.out.println("Request path: " + path);
+        });
+
+        app.before(ctx -> {
+            ctx.header("X-Custom-Header", "value");
+        });
+
+        app.before(ctx -> {
+            Date timestamp = new Date();
+            System.out.println("Дата и время запроса: " + timestamp);
+        });
+
+//        app.get("/", ctx -> {
+//            String visitedCookie = ctx.cookie("visited");
+//            boolean visited = visitedCookie != null && Boolean.parseBoolean(visitedCookie);
+//
+//            if (!visited) {
+//                ctx.cookie("visited", "true");
+//            }
+//
+//            ctx.result("Welcome to My page!");
+//        });
+
         app.get(NamedRoutes.buildUserPath(), UsersController::build);
-        app.get(NamedRoutes.usersPath(), UsersController::index);
+        app.get("/users", UsersController::index);
         app.get("/users/{id}", UsersController::show);
         app.post("/users", UsersController::create);
 
@@ -39,6 +71,12 @@ public class HelloWorld {
         app.get("/courses", CourseController::index);
         app.get("/courses/{id}", CourseController::show);
         app.post("/courses", CourseController::create);
+
+
+        app.get(NamedRoutes.rootPath(), RootController::index);
+        app.get("/sessions", SessionController::build);
+        app.post("/sessions", SessionController::create);
+        app.post(NamedRoutes.sessionsPath() + "/logout", SessionController::destroy);
 
 
 //        app.get(NamedRoutes.buildCoursePath(), ctx -> {

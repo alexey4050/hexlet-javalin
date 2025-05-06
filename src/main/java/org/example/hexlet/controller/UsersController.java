@@ -64,16 +64,19 @@ public class UsersController {
 
         try {
             var passwordConfirmation = ctx.formParam("passwordConfirmation");
-            var password = ctx.pathParamAsClass("password", String.class)
+            var password = ctx.formParamAsClass("password", String.class)
                     .check(value -> value.equals(passwordConfirmation), "Пароли не совпадают")
-                    .check(x -> x.length() > 6, "Пароли не совпадают")
+                    .check(x -> x.length() > 6, "Пароль слишком короткий")
                     .get();
             var user = new User(name, email, password);
             UserRepository.save(user);
-            ctx.redirect(NamedRoutes.usersPath());
+            ctx.redirect("/users");
         } catch (ValidationException e) {
             var page = new BuildUserPage(name, email, e.getErrors());
             ctx.status(422).render("users/build.jte", model("page", page));
+        } catch (Exception e) {
+            e.printStackTrace();
+            ctx.status(500).result("Server Error: " + e.getMessage());
         }
     }
 }

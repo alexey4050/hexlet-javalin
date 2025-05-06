@@ -3,10 +3,10 @@ import gg.jte.Content;
 import org.example.hexlet.util.NamedRoutes;
 public final class JtepageGenerated {
 	public static final String JTE_NAME = "layout/page.jte";
-	public static final int[] JTE_LINE_INFO = {0,0,1,2,2,2,22,22,22,22,22,22,22,22,22,22,25,25,25,25,25,25,25,25,25,28,28,28,28,28,28,28,28,28,31,31,31,31,31,31,31,31,31,39,39,39,48,48,48,2,2,2,2};
+	public static final int[] JTE_LINE_INFO = {0,0,1,2,2,2,21,21,21,21,21,21,21,21,21,21,24,24,24,24,24,24,24,24,24,27,27,27,27,27,27,27,27,27,30,30,30,30,30,30,30,30,30,33,33,33,33,33,33,33,33,33,36,36,36,36,36,36,36,36,36,44,44,44,53,53,53,2,2,2,2};
 	public static void render(gg.jte.html.HtmlTemplateOutput jteOutput, gg.jte.html.HtmlInterceptor jteHtmlInterceptor, Content content) {
-		jteOutput.writeContent("<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Мой сайт</title>\n    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n</head>\n<body>\n    <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n        <div class=\"container-fluid\">\n            <a class=\"navbar-brand\" href=\"/\">Мой сайт</a>\n            <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\"\n                    aria-label=\"Toggle navigation\">\n                <span class=\"navbar-toggler-icon\"></span>\n            </button>\n            <div class=\"collapse navbar-collapse\" id=\"navbarNav\">\n                <ul class=\"navbar-nav\">\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\"");
-		var __jte_html_attribute_0 = NamedRoutes.buildUserPath();
+		jteOutput.writeContent("<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Мой сайт</title>\n    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n</head>\n<body>\n    <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n        <div class=\"container-fluid\">\n            <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\"\n                    aria-label=\"Toggle navigation\">\n                <span class=\"navbar-toggler-icon\"></span>\n            </button>\n            <div class=\"collapse navbar-collapse\" id=\"navbarNav\">\n                <ul class=\"navbar-nav\">\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\"");
+		var __jte_html_attribute_0 = NamedRoutes.rootPath();
 		if (gg.jte.runtime.TemplateUtils.isAttributeRendered(__jte_html_attribute_0)) {
 			jteOutput.writeContent(" href=\"");
 			jteOutput.setContext("a", "href");
@@ -14,8 +14,8 @@ public final class JtepageGenerated {
 			jteOutput.setContext("a", null);
 			jteOutput.writeContent("\"");
 		}
-		jteOutput.writeContent(">Создать пользователя</a>\n                    </li>\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\"");
-		var __jte_html_attribute_1 = NamedRoutes.usersPath();
+		jteOutput.writeContent(">Главная</a>\n                    </li>\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\"");
+		var __jte_html_attribute_1 = NamedRoutes.sessionsPath();
 		if (gg.jte.runtime.TemplateUtils.isAttributeRendered(__jte_html_attribute_1)) {
 			jteOutput.writeContent(" href=\"");
 			jteOutput.setContext("a", "href");
@@ -23,8 +23,8 @@ public final class JtepageGenerated {
 			jteOutput.setContext("a", null);
 			jteOutput.writeContent("\"");
 		}
-		jteOutput.writeContent(">Поиск пользователя</a>\n                    </li>\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\"");
-		var __jte_html_attribute_2 = NamedRoutes.coursesPath();
+		jteOutput.writeContent(">Сессии</a>\n                    </li>\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\"");
+		var __jte_html_attribute_2 = NamedRoutes.buildUserPath();
 		if (gg.jte.runtime.TemplateUtils.isAttributeRendered(__jte_html_attribute_2)) {
 			jteOutput.writeContent(" href=\"");
 			jteOutput.setContext("a", "href");
@@ -32,12 +32,30 @@ public final class JtepageGenerated {
 			jteOutput.setContext("a", null);
 			jteOutput.writeContent("\"");
 		}
-		jteOutput.writeContent(">Поиск курсов</a>\n                    </li>\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\"");
-		var __jte_html_attribute_3 = NamedRoutes.buildCoursePath();
+		jteOutput.writeContent(">Создать пользователя</a>\n                    </li>\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\"");
+		var __jte_html_attribute_3 = NamedRoutes.usersPath();
 		if (gg.jte.runtime.TemplateUtils.isAttributeRendered(__jte_html_attribute_3)) {
 			jteOutput.writeContent(" href=\"");
 			jteOutput.setContext("a", "href");
 			jteOutput.writeUserContent(__jte_html_attribute_3);
+			jteOutput.setContext("a", null);
+			jteOutput.writeContent("\"");
+		}
+		jteOutput.writeContent(">Поиск пользователя</a>\n                    </li>\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\"");
+		var __jte_html_attribute_4 = NamedRoutes.coursesPath();
+		if (gg.jte.runtime.TemplateUtils.isAttributeRendered(__jte_html_attribute_4)) {
+			jteOutput.writeContent(" href=\"");
+			jteOutput.setContext("a", "href");
+			jteOutput.writeUserContent(__jte_html_attribute_4);
+			jteOutput.setContext("a", null);
+			jteOutput.writeContent("\"");
+		}
+		jteOutput.writeContent(">Поиск курсов</a>\n                    </li>\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\"");
+		var __jte_html_attribute_5 = NamedRoutes.buildCoursePath();
+		if (gg.jte.runtime.TemplateUtils.isAttributeRendered(__jte_html_attribute_5)) {
+			jteOutput.writeContent(" href=\"");
+			jteOutput.setContext("a", "href");
+			jteOutput.writeUserContent(__jte_html_attribute_5);
 			jteOutput.setContext("a", null);
 			jteOutput.writeContent("\"");
 		}

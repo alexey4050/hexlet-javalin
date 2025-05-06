@@ -5,14 +5,14 @@
 @template.layout.page(
 content = @`
     <form action="${NamedRoutes.coursesPath()}" method="post">
-        <lable>
+        <label>
            Название
             <input type="text" name="name">
-        </lable>
-        <lable>
+        </label>
+        <label>
             Описание
             <input type="text" name="description">
-        </lable>
+        </label>
         <input type="submit" value="Создать">
     </form>
 `
