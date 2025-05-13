@@ -9,12 +9,13 @@ import org.example.hexlet.dto.courses.CoursesPage;
 import org.example.hexlet.model.Course;
 import org.example.hexlet.repository.CourseRepository;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import static io.javalin.rendering.template.TemplateUtil.model;
 
 public class CourseController {
-    public static void index(Context ctx) {
+    public static void index(Context ctx) throws SQLException{
         var term = ctx.queryParam("term");
         List<Course> courses;
 
@@ -29,7 +30,7 @@ public class CourseController {
         ctx.render("courses/index.jte", model("page", page));
     }
 
-    public static void show(Context ctx) {
+    public static void show(Context ctx) throws SQLException{
         var id = ctx.pathParamAsClass("id", Long.class).get();
         var course = CourseRepository.find(id)
                 .orElseThrow(() -> new NotFoundResponse("Entity with id = " + id + " not found"));
@@ -42,7 +43,7 @@ public class CourseController {
         ctx.render("courses/build.jte");
     }
 
-    public static void create(Context ctx) {
+    public static void create(Context ctx) throws SQLException {
         var name = ctx.formParam("name");
         try {
             var description = ctx.formParamAsClass("description", String.class)

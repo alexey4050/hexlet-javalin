@@ -13,12 +13,13 @@ import org.example.hexlet.model.User;
 import org.example.hexlet.repository.UserRepository;
 //import org.example.hexlet.util.NamedRoutes;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import static io.javalin.rendering.template.TemplateUtil.model;
 
 public class UsersController {
-    public static void index(Context ctx) {
+    public static void index(Context ctx) throws SQLException {
         var term = ctx.queryParam("term");
         List<User> users;
 
@@ -33,7 +34,7 @@ public class UsersController {
         ctx.render("users/index.jte", model("page", page));
     }
 
-    public static void show(Context ctx) {
+    public static void show(Context ctx) throws SQLException{
         try {
             var id = ctx.pathParamAsClass("id", Long.class).get();
             var user = UserRepository.find(id)
