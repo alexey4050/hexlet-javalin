@@ -25,7 +25,7 @@ public class CourseController {
         }
         var header = "Курсы по программированию";
         var page = new CoursesPage(courses, header, term);
-
+        page.setFlash(ctx.consumeSessionAttribute("flash"));
         ctx.render("courses/index.jte", model("page", page));
     }
 
@@ -51,6 +51,7 @@ public class CourseController {
                     .get();
             var course = new Course(name, description);
             CourseRepository.save(course);
+            ctx.sessionAttribute("flash", "Course has been created!");
             ctx.redirect("/courses");
         } catch (ValidationException e) {
             var description = ctx.formParam("description");

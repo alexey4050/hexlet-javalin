@@ -3,15 +3,15 @@ package org.example.hexlet.controller;
 import io.javalin.http.Context;
 import io.javalin.http.NotFoundResponse;
 import io.javalin.validation.ValidationException;
-import org.example.hexlet.dto.courses.CoursesPage;
+//import org.example.hexlet.dto.courses.CoursesPage;
 import org.example.hexlet.dto.users.BuildUserPage;
 import org.example.hexlet.dto.users.UserPage;
 import org.example.hexlet.dto.users.UsersPage;
-import org.example.hexlet.model.Course;
+//import org.example.hexlet.model.Course;
 import org.example.hexlet.model.User;
-import org.example.hexlet.repository.CourseRepository;
+//import org.example.hexlet.repository.CourseRepository;
 import org.example.hexlet.repository.UserRepository;
-import org.example.hexlet.util.NamedRoutes;
+//import org.example.hexlet.util.NamedRoutes;
 
 import java.util.List;
 
@@ -29,6 +29,7 @@ public class UsersController {
         }
         var header = "Список пользователей";
         var page = new UsersPage(users, header, term);
+        page.setFlash(ctx.consumeSessionAttribute("flash"));
         ctx.render("users/index.jte", model("page", page));
     }
 
@@ -70,6 +71,7 @@ public class UsersController {
                     .get();
             var user = new User(name, email, password);
             UserRepository.save(user);
+            ctx.sessionAttribute("flash", "User add to list!");
             ctx.redirect("/users");
         } catch (ValidationException e) {
             var page = new BuildUserPage(name, email, e.getErrors());

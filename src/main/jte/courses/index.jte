@@ -3,6 +3,7 @@
 @param CoursesPage page
 
 @template.layout.page(
+    page = page,
 content = @`
         <h1>Список курсов</h1>
         <form action="/courses" method="get">

@@ -7,7 +7,7 @@ public final class JteindexGenerated {
 			public void writeTo(gg.jte.html.HtmlTemplateOutput jteOutput) {
 				jteOutput.writeContent("\n        <h1>Добро пожаловать на мой сайт!</h1>\n        <p>Здесь представлены мои проекты и достижения.</p>\n   ");
 			}
-		});
+		}, null);
 	}
 	public static void renderMap(gg.jte.html.HtmlTemplateOutput jteOutput, gg.jte.html.HtmlInterceptor jteHtmlInterceptor, java.util.Map<String, Object> params) {
 		render(jteOutput, jteHtmlInterceptor);

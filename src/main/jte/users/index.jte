@@ -3,6 +3,7 @@
 @param UsersPage page
 
 @template.layout.page(
+    page = page,
 content = @`
     <h1>Список пользователей</h1>
     <form action="/users" method="get">

@@ -18,12 +18,11 @@ import org.example.hexlet.controller.UsersController;
 //import org.example.hexlet.model.User;
 //import org.example.hexlet.repository.CourseRepository;
 //import org.example.hexlet.repository.UserRepository;
-import org.example.hexlet.dto.MainPage;
 import org.example.hexlet.util.NamedRoutes;
 
 import java.util.Date;
 
-import static io.javalin.rendering.template.TemplateUtil.model;
+//import static io.javalin.rendering.template.TemplateUtil.model;
 //import java.util.List;
 //
 //import static io.javalin.rendering.template.TemplateUtil.model;

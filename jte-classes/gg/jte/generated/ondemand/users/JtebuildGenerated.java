@@ -52,7 +52,7 @@ public final class JtebuildGenerated {
 				}
 				jteOutput.writeContent(" placeholder=\"example@email.ru\" required>\n        </div>\n        <div class=\"mb-3\">\n            <label for=\"passwordInput\" class=\"form-label\">Пароль</label>\n            <input type=\"password\" class=\"form-control\" id=\"passwordInput\" name=\"password\" placeholder=\"Пароль\" required>\n        </div>\n        <div class=\"mb-3\">\n            <label for=\"passwordConfirmInput\" class=\"form-label\">Подтверждение пароля</label>\n            <input type=\"password\" class=\"form-control\" id=\"passwordConfirmInput\" name=\"passwordConfirmation\" placeholder=\"Подтвердите пароль\" required>\n        </div>\n        <input type=\"submit\" value=\"Зарегистрироваться\">\n    </form>\n");
 			}
-		});
+		}, null);
 		jteOutput.writeContent("\n");
 	}
 	public static void renderMap(gg.jte.html.HtmlTemplateOutput jteOutput, gg.jte.html.HtmlInterceptor jteHtmlInterceptor, java.util.Map<String, Object> params) {
