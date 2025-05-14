@@ -2,8 +2,8 @@ FROM gradle:8.12.1-jdk21
 
 WORKDIR /hexlet-javalin
 
-COPY src .
+COPY /hexlet-javalin .
 
-RUN ["./gradlew","build"]
+RUN ["./gradlew", "clean", "build"]
 
 CMD ["./gradlew", "run"]
